@@ -8,7 +8,6 @@ from train_model import rfModel
 from holdout_model import holdout_results
 
 def main(targets):
-    data_config = json.load(open('config/data-params.json'))
     if 'test' in targets:
         data = getData('data/testdata.pkl')
         X,y = clean_features(data)
