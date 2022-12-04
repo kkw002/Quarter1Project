@@ -3,8 +3,9 @@ def clean_features(df):
   encoded_X= pd.get_dummies(df,columns=['acquisition_type','snapshot_type','channel'])
   encoded_X['vantage3_score'].fillna(encoded_X['vantage3_score'].mean(), inplace=True)
   #removing these columns specifically
-  X=encoded_X.loc[:, ~encoded_X.columns.isin(['bad','bad_balance','vintage','state_code','bad_v2','evaluation_dt'])]
+  encoded_X= encoded_X[(encoded_X['all0000'].isnull()==False)&(encoded_X['bad']!=-1)&(encoded_X['bad'].isnull()==False)]
+  X = encoded_X.loc[:, ~encoded_X.columns.isin(['bad','bad_balance','vintage','state_code','bad_v2','evaluation_dt','all9230','all9240','all9249','all9280'])]
+  X[X.columns[5:828]]=X[X.columns[5:828]].fillna(X[X.columns[5:828]].median())
+  #prediction var in this case is bad
   y = encoded_X['bad']
-  X=X.replace(np.NaN,-999)
-  y=y.replace(np.NaN,-2)
   return X,y
