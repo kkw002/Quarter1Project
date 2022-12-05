@@ -19,7 +19,7 @@ def main(targets):
         holdout_X,holdout_y = clean_features(holdout_set)
         randmodel,xgbmodel = model_gen(train_X,train_y)
         holdout_results(randmodel,xgbmodel,holdout_X,holdout_y)
-return 
+    return 
 if __name__ == '__main__':
     # run via:
     # python main.py data features model
