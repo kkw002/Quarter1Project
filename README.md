@@ -10,6 +10,8 @@ The holdout set can be accessed through this google link: https://drive.google.c
 (1) Download the data from the links, copy the filepath in which they are stored.
 
 (2) In their respective config files, replace outdir with the filepath of each file.
+## Running on Actual Data
+When launching the docker image, include -m 32 after the docker image
 
 ## Viewing Results
 To get the data from the config files, run ``` python run.py data ```
