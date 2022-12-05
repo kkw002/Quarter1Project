@@ -13,3 +13,5 @@ The holdout set can be accessed through this google link: https://drive.google.c
 
 ## Viewing the Results
 To view the ROC scores of the models, run  ``` python run.py results ```
+
+To check if the models work, run ``` python run.py test ```
