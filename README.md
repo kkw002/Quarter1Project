@@ -1,5 +1,5 @@
 # DSC180A Quarter 1 Project: Predicting Deliquency of Credit Applicants
-This project explores relevant attributes in predicting future delinquencies utlizing datasets given, one containing purely training data and another being the holdout set. 
+This project explores relevant attributes in predicting future delinquencies utlizing models on datasets given, one containing purely training data and another being the holdout set. The models used in this project are XGBoost and Random Forest Classifier.
 
 ## Accessing Training and Holdout data
 
