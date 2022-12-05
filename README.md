@@ -12,7 +12,7 @@ The holdout set can be accessed through this google link: https://drive.google.c
 (2) In their respective config files, replace outdir with the filepath of each file.
 
 ## Viewing Results
-To get the data from the config files, run ``` python run.py results ```
+To get the data from the config files, run ``` python run.py data ```
 
 To view the roc_auc scores of the models, run  ``` python run.py results ```
 
