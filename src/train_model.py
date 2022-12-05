@@ -8,11 +8,11 @@ def model_gen(X,y):
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=42)
   #Create baseline Model
   lr_model = LogisticRegression()
-  #Create Random Forest Model with Baseline Arguments
+  #Create default params Random Forest model
   rf_model = RandomForestClassifier()
-  #Create XGBClassifier Model with Baseline Arguments
+  #Create default params XGBoost model
   xgb_model = XGBClassifier() 
-  #Fit each model with training Data
+  #Fit each model with training data
   rf_model.fit(X_train,y_train)
     
   xgb_model.fit(X_train,y_train)
