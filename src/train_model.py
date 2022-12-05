@@ -6,13 +6,13 @@ from xgboost import XGBClassifier
 
 def model_gen(X,y):
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=42)
-  #Create Baseline Model
-  lr_model = LogisticRegression() 
-  #Create RandomForestClassifier Model with baseline arguments
+  #Create baseline Model
+  lr_model = LogisticRegression()
+  #Create Random Forest Model with Baseline Arguments
   rf_model = RandomForestClassifier()
-  #Creat XGBoost Model with baseline arguments
+  #Create XGBClassifier Model with Baseline Arguments
   xgb_model = XGBClassifier() 
-
+  #Fit each model with training Data
   rf_model.fit(X_train,y_train)
     
   xgb_model.fit(X_train,y_train)
@@ -23,19 +23,19 @@ def model_gen(X,y):
     
   print('Baseline Train AUC: '+str(metrics.roc_auc_score(y_train.to_numpy(),lr_model.predict_proba(X_train)[:,1])))
 
-  print('Baseline Test AUC: '+str(metrics.roc_auc_score(y_test.to_numpy(),lr_model.predict_proba(X_test)[:,1])))
+  print('Baseline Test AUC: '+str(metrics.roc_auc_score(y_test.to_numpy(),lr_model.predict_proba(X_test)[:,1]))+'\n')
   
   #Display AUC for Random Forest
 
   print('Training Data Random Forest AUC:  '+str(metrics.roc_auc_score(y_train.to_numpy(),rf_model.predict_proba(X_train)[:,1])))
 
-  print('Test Data Random Forest AUC: '+str(metrics.roc_auc_score(y_test.to_numpy(),rf_model.predict_proba(X_test)[:,1])))
+  print('Test Data Random Forest AUC: '+str(metrics.roc_auc_score(y_test.to_numpy(),rf_model.predict_proba(X_test)[:,1]))+'\n')
         
   #Displaying the AUC For XGB
 
   print('Training Data XGB AUC:  '+str(metrics.roc_auc_score(y_train.to_numpy(),xgb_model.predict_proba(X_train)[:,1])))
     
-  print('Test Data XGB AUC: '+str(metrics.roc_auc_score(y_test.to_numpy(),xgb_model.predict_proba(X_test)[:,1])))
+  print('Test Data XGB AUC: '+str(metrics.roc_auc_score(y_test.to_numpy(),xgb_model.predict_proba(X_test)[:,1]))+'\n')
   
   #optimized model for Random Forest 
   #param_grid = {'n_estimators': [int(x) for x in np.linspace(start = 10, stop = 80, num = 10)],
@@ -50,7 +50,7 @@ def model_gen(X,y):
   hyperparam_model=RandomForestClassifier(n_estimators=64,min_samples_split=5,min_samples_leaf=1,max_features='auto',max_depth=4,bootstrap=True)
   hyperparam_model.fit(X_train,y_train)
   print('Training Data Optimized XGB AUC:  '+str(metrics.roc_auc_score(y_train.to_numpy(),hyperparam_model.predict_proba(X_train)[:,1])))
-  print('Test Data Optimized XGB AUC:  '+str(metrics.roc_auc_score(y_test.to_numpy(),hyperparam_model.predict_proba(X_test)[:,1])))
+  print('Test Data Optimized XGB AUC:  '+str(metrics.roc_auc_score(y_test.to_numpy(),hyperparam_model.predict_proba(X_test)[:,1]))+'\n')
   #optimized model for XGBoost
   #params = {
   #  'learning_rate':[0.05,0.1,0.15,0.20,0.25],
