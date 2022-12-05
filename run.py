@@ -8,6 +8,11 @@ from train_model import model_gen
 from holdout_model import holdout_results
 
 def main(targets):
+    if 'data' in targets:
+        with open('config/data-params.json') as fh:
+            data_cfg = json.load(fh)
+        with open('config/holdoutdata_params.json') as fh:
+            holddata_cfg = json.load(fh)
     if 'test' in targets:
         data = getData('data/testdata.pkl')
         X,y = clean_features(data)
