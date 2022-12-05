@@ -7,5 +7,5 @@ The training data can be accessed through this google link: https://drive.google
 
 The holdout set can be accessed through this google link: https://drive.google.com/file/d/1_C3Hx2s0YJ0rTdOPNVvufA1bRH5eRrPO/view?usp=sharing
 
-## Building the Project
+## Viewing the Results
 To view the predictions of the models, as well as the accuracy scores of the models, run  ``` python run.py results ```
