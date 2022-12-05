@@ -12,4 +12,4 @@ The holdout set can be accessed through this google link: https://drive.google.c
 (2) In their respective config files, replace outdir with the filepath of each file.
 
 ## Viewing the Results
-To view the predictions of the models, as well as the accuracy scores of the models, run  ``` python run.py results ```
+To view the ROC scores of the models, run  ``` python run.py results ```
