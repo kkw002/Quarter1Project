@@ -13,8 +13,12 @@ def main(targets):
         X,y = clean_features(data)
         model_gen(X,y)
     if 'results' in targets:
-        train_set = getDataZip('data/forStudents.pkl.zip')
-        holdout_set = getDataZip('data/holdout_final.pkl.zip')
+        with open('config/data-params.json') as fh:
+            data_cfg = json.load(fh)
+        with open('config/holdoutdata_params.json') as fh:
+            holddata_cfg = json.load(fh)
+        train_set = getDataZip(**data_cfg)
+        holdout_set = getDataZip(**holddata_cfg)
         train_X,train_y = clean_features(train_set)
         holdout_X,holdout_y = clean_features(holdout_set)
         randmodel,xgbmodel = model_gen(train_X,train_y)
