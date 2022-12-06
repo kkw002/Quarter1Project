@@ -11,7 +11,7 @@ The holdout set can be accessed through this google link: https://drive.google.c
 
 (2) In their respective config files, replace outdir with the filepath of each file.
 ## launch.sh adjustments
-When building the docker container, The command should be ```launch.sh -i kkw002/predict_default -m 32 -c 8```after the docker image.
+When building the docker container, The command should be ```launch.sh -i kkw002/predict_default -m 32 -c 8```.
 
 ## Viewing Results
 To get the data from the config files, run ``` python run.py data ```
